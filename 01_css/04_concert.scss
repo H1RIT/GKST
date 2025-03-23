@@ -1,0 +1,212 @@
+#concert {
+  background: #fafafa;
+  width: 100vw;
+  height: 100vh;
+  color: #000;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  position: relative;
+
+  .titleContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 6rem;
+    overflow: hidden;
+    z-index: 1;
+    position: absolute;
+    top: 59%;
+    transition: all .3s ease;
+
+    .titleCarousel {
+      position: relative;
+      top: 0;
+      transition: all .3s ease;
+      
+      .title {
+        font-family: "GangwonEduPowerExtraBoldA";
+        display: flex;
+        flex-direction: column;
+        height: 6rem;
+        transition: all .3s;
+        text-shadow: 1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+  
+        h2 {
+          font-size: 3.8rem;
+          margin-top: .8rem;
+        }
+
+        .subtitle {
+          overflow: hidden;
+          height: 1.2rem;
+          margin-top: -10px;
+      
+          h3 {
+            display: block;
+            font-size: 1.2rem;
+            margin-top: 1px;
+            position: relative;
+            transition: all .3s;
+          }
+        }
+      }
+    }
+  }
+
+  .carousel {
+    display: flex;
+    position: relative;
+    top: 30vh;
+    align-items: center;
+    transition: all .3s ease;
+
+    &.active {
+      top: 0;
+      align-items: start;
+    }
+
+    .carouselItem {
+      flex-shrink: 0;
+      transition: all .3s;
+      
+      &:first-child {
+        margin-left: 50px;
+      }
+      
+      .thumbnail {
+        width: 100%;
+        position: relative;
+        aspect-ratio: 1/1;
+        overflow: hidden;
+
+        .poster {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
+
+          img {
+            position: relative;
+            transition: all .5s;
+          }
+        }
+      }
+
+      &:nth-child(1) .thumbnail .poster img {
+        transform: scale(1.6);
+        top: 5%;
+      }
+      &:nth-child(2) .thumbnail .poster img {
+        transform: scale(1.8);
+        top: -5%;
+      }
+      &:nth-child(3) .thumbnail .poster img {
+        transform: scale(2);
+        top: 40%;
+      }
+      &:nth-child(4) .thumbnail .poster img {
+        transform: scale(1.9);
+        top: 18%;
+      }
+      &:nth-child(5) .thumbnail .poster img {
+        transform: scale(2);
+        top: 5%;
+      }
+      &:nth-child(6) .thumbnail .poster img {
+        transform: scale(1.8);
+        top: 20%;
+      }
+
+      &.active {
+        width: 100vw;
+        margin-left: 0;
+        
+        .thumbnail {
+          margin-top: 0;
+          aspect-ratio: auto;
+
+          .poster {
+
+            img {
+              width: 100%;
+              transform: scale(1)!important;
+              top: 0;
+              position: relative;
+            }
+          }
+        }
+
+        .post {
+          display: flex;
+          opacity: 1;
+        }
+      }
+
+      .post {
+        display: none;
+        opacity: 0;
+        transition: all .3s;
+        flex-direction: column;
+        align-items: center;
+        gap: 80px;
+        margin-top: 180px;
+        margin-bottom: 100px;
+
+        .table {
+          width: 80%;
+          line-height: 125%;
+          
+          li {
+            border-top: 1px solid #000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 10px 15px 10px;
+
+            &:last-child {
+              border-bottom: 1px solid #000;
+            }
+
+            span {
+              font: 1rem "GongGothicMedium";
+            }
+          }
+        }
+        
+        .list {
+          width: 80%;
+          margin-top: 40px;
+
+          li {
+            border-top: 1px solid #000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 10px;
+
+            &:last-child {
+              border-bottom: 1px solid #000;
+            }
+
+            span {
+              font: 1rem "GongGothicMedium";
+            }
+
+            time {
+              font: 0.8rem "GongGothicLight";
+            }
+
+            &.active {
+              span {
+                color: #fff;
+                text-shadow: 2px 2px #000, -2px -2px #000, 2px -2px #000, -2px 2px #000, 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000;
+                font: 1rem "GongGothicBold";
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

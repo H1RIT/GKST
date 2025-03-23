@@ -1,0 +1,195 @@
+#gallery {
+  background: #fff;
+  width: 100vw;
+  height: 100vh;
+  color: #000;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s;
+}
+#gallery .galleryInterface {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+#gallery .galleryInterface .arrow {
+  opacity: 0.3;
+}
+#gallery .galleryInterface .arrow .up {
+  position: absolute;
+  top: 220px;
+  left: 50%;
+  transform: translateX(-50%) translateY(0) rotate(180deg);
+  animation: arrowUp 1.5s ease infinite;
+  transition: all 0.3s;
+}
+#gallery .galleryInterface .arrow .down {
+  position: absolute;
+  top: 680px;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  animation: arrowDown 1.5s ease infinite;
+  transition: all 0.3s;
+  opacity: 0;
+}
+#gallery .galleryInterface .year {
+  height: 2rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 300px;
+  overflow: hidden;
+}
+#gallery .galleryInterface .year span {
+  font: 1.8rem "GangwonEduPowerExtraBoldA";
+  position: relative;
+  transition: all 0.3s;
+}
+#gallery .galleryInterface .year span:first-child {
+  padding-top: 2%;
+}
+#gallery .titleContainer {
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  top: 58%;
+  transition: all 0.3s ease;
+}
+#gallery .titleContainer .titleCarouselWrap {
+  position: relative;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 6rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+#gallery .titleContainer .titleCarouselWrap .titleCarousel {
+  position: relative;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 6rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+#gallery .titleContainer .titleCarouselWrap .titleCarousel .title {
+  font-family: "GangwonEduPowerExtraBoldA";
+  position: relative;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  height: 6rem;
+  text-shadow: 1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+  transition: all 0.3s ease;
+}
+#gallery .titleContainer .titleCarouselWrap .titleCarousel .title h2 {
+  font-size: 3.8rem;
+  margin-top: 0.8rem;
+}
+#gallery .titleContainer .titleCarouselWrap .titleCarousel .title h3 {
+  font-size: 1.2rem;
+  margin-top: -1.5vh;
+}
+#gallery .carouselContainer {
+  position: relative;
+  width: 100vw;
+  top: 40%;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+#gallery .carouselContainer .carouselWrap {
+  position: relative;
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+#gallery .carouselContainer .carouselWrap .carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+#gallery .carouselContainer .carouselWrap .carousel .carouselItem {
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  position: relative;
+}
+#gallery .carouselContainer .carouselWrap .carousel .carouselItem:first-child {
+  margin-left: 50px;
+}
+#gallery .carouselContainer .carouselWrap .carousel .carouselItem .thumbnail {
+  width: 100%;
+  position: relative;
+  aspect-ratio: 3/2;
+  overflow: hidden;
+}
+#gallery .carouselContainer .carouselWrap .carousel .carouselItem .thumbnail .photoContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/2;
+  overflow: hidden;
+  display: flex;
+}
+#gallery .carouselContainer .carouselWrap .carousel .carouselItem .thumbnail .photoContainer img {
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  position: relative;
+  transition: all 0.3s ease;
+}
+#gallery .carouselContainer .carouselWrap .carousel .carouselItem .scrollbar {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: end;
+  margin: 30px 0;
+  height: 40px;
+  display: none;
+}
+#gallery .carouselContainer .carouselWrap .carousel .carouselItem .scrollbar span {
+  width: 3px;
+  height: 5px;
+  background: #999;
+  transition: all 0.3s;
+}
+#gallery .carouselContainer .carouselWrap .carousel .carouselItem.active {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+}
+
+@keyframes arrowUp {
+  0% {
+    transform: translateX(-50%) translateY(0) rotate(180deg);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-20px) rotate(180deg);
+  }
+  89% {
+    transform: translateX(-50%) translateY(-20px) rotate(180deg);
+  }
+  90% {
+    transform: translateX(-50%) translateY(0) rotate(180deg);
+  }
+}
+@keyframes arrowDown {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(20px);
+  }
+  89% {
+    transform: translateX(-50%) translateY(20px);
+  }
+  90% {
+    transform: translateX(-50%) translateY(0);
+  }
+}/*# sourceMappingURL=05_gallery.css.map */

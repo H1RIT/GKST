@@ -1,0 +1,17 @@
+#home {
+  background: #111;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+}
+#home .homeVideo {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: -720px 0;
+     object-position: -720px 0;
+  display: block;
+  z-index: -10000;
+}/*# sourceMappingURL=01_home.css.map */

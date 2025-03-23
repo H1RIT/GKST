@@ -1,0 +1,206 @@
+#video {
+  background: #fafafa;
+  width: 100vw;
+  height: 100vh;
+  color: #000;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  position: relative;
+}
+#video .titleContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 6rem;
+  overflow: hidden;
+  z-index: 1;
+  position: absolute;
+  top: 53%;
+  transition: all 0.3s ease;
+}
+#video .titleContainer .titleCarousel {
+  position: relative;
+  top: 0;
+  transition: all 0.3s ease;
+}
+#video .titleContainer .titleCarousel .title {
+  font-family: "GangwonEduPowerExtraBoldA";
+  display: flex;
+  flex-direction: column;
+  height: 6rem;
+  text-shadow: 1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+}
+#video .titleContainer .titleCarousel .title h2 {
+  font-size: 3.8rem;
+  margin-top: 0.8rem;
+}
+#video .titleContainer .titleCarousel .title h3 {
+  font-size: 1.2rem;
+  margin-top: -1rem;
+}
+#video .carousel {
+  display: flex;
+  position: relative;
+  top: 33%;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+#video .carousel.active {
+  top: 0;
+  align-items: start;
+}
+#video .carousel .carouselItem {
+  flex-shrink: 0;
+  transition: all 0.3s;
+}
+#video .carousel .carouselItem:first-child {
+  margin-left: 50px;
+}
+#video .carousel .carouselItem .thumbnail {
+  width: 100%;
+  position: relative;
+  aspect-ratio: 3/2;
+  overflow: hidden;
+}
+#video .carousel .carouselItem .thumbnail .cover {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s;
+}
+#video .carousel .carouselItem .thumbnail .cover img {
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  position: relative;
+  transition: all 0.5s;
+  opacity: 1;
+  visibility: visible;
+}
+#video .carousel .carouselItem .thumbnail .video {
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#video .carousel .carouselItem .thumbnail .video iframe {
+  width: 300%;
+  height: 300%;
+  position: absolute;
+}
+#video .carousel .carouselItem:nth-child(1) .thumbnail .cover img {
+  transform: scale(1);
+}
+#video .carousel .carouselItem:nth-child(2) .thumbnail .cover img {
+  transform: scale(1);
+}
+#video .carousel .carouselItem:nth-child(3) .thumbnail .cover img {
+  transform: scale(2);
+}
+#video .carousel .carouselItem:nth-child(4) .thumbnail .cover img {
+  transform: scale(1);
+}
+#video .carousel .carouselItem.active {
+  width: 100vw;
+  margin-left: 0;
+}
+#video .carousel .carouselItem.active .thumbnail {
+  margin-top: 0;
+  aspect-ratio: 1/1.5;
+}
+#video .carousel .carouselItem.active .thumbnail img {
+  opacity: 0;
+  visibility: hidden;
+}
+#video .carousel .carouselItem.active .video {
+  opacity: 1;
+  visibility: visible;
+  position: absolute;
+}
+#video .carousel .carouselItem.active .post {
+  display: flex;
+  opacity: 1;
+}
+#video .carousel .carouselItem .post {
+  display: none;
+  opacity: 0;
+  transition: all 0.3s;
+  flex-direction: column;
+  align-items: center;
+  gap: 70px;
+  margin-top: 120px;
+  margin-bottom: 100px;
+}
+#video .carousel .carouselItem .post .youtubeIcon {
+  display: flex;
+  gap: 10px;
+}
+#video .carousel .carouselItem .post .youtubeIcon div {
+  position: relative;
+  width: 35px;
+  height: 35px;
+}
+#video .carousel .carouselItem .post .youtubeIcon div a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #000;
+  border-radius: 20%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.3s;
+}
+#video .carousel .carouselItem .post .youtubeIcon div a:nth-child(1) {
+  background: #fff;
+}
+#video .carousel .carouselItem .post .youtubeIcon div a:nth-child(2) {
+  background: #000;
+  opacity: 0;
+}
+#video .carousel .carouselItem .post .youtubeIcon div a img {
+  position: relative;
+  width: 100%;
+  top: 0;
+}
+#video .carousel .carouselItem .post .textbox {
+  width: 80%;
+  line-height: 125%;
+}
+#video .carousel .carouselItem .post .textbox span {
+  font-family: "Paperlogy-6SemiBold";
+}
+#video .carousel .carouselItem .post .list {
+  width: 80%;
+  margin-top: 20px;
+}
+#video .carousel .carouselItem .post .list li {
+  border-top: 1px solid #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10px;
+}
+#video .carousel .carouselItem .post .list li:last-child {
+  border-bottom: 1px solid #000;
+}
+#video .carousel .carouselItem .post .list li span {
+  font: 1rem "GongGothicMedium";
+}
+#video .carousel .carouselItem .post .list li time {
+  font: 0.8rem "GongGothicLight";
+}
+#video .carousel .carouselItem .post .list li.active span {
+  color: #fff;
+  text-shadow: 2px 2px #000, -2px -2px #000, 2px -2px #000, -2px 2px #000, 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000;
+  font: 1rem "GongGothicBold";
+}/*# sourceMappingURL=06_video.css.map */

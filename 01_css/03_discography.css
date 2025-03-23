@@ -1,0 +1,211 @@
+#discography {
+  background: #fafafa;
+  width: 100vw;
+  height: 100vh;
+  color: #000;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  position: relative;
+}
+#discography .titleContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 6rem;
+  overflow: hidden;
+  z-index: 1;
+  position: absolute;
+  top: 59%;
+  transition: all 0.3s ease;
+}
+#discography .titleContainer.active {
+  top: 48%;
+}
+#discography .titleContainer .titleCarousel {
+  position: relative;
+  top: 0;
+  transition: all 0.3s ease;
+}
+#discography .titleContainer .titleCarousel .title {
+  font-family: "GangwonEduPowerExtraBoldA";
+  display: flex;
+  flex-direction: column;
+  height: 6rem;
+  text-shadow: 1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+}
+#discography .titleContainer .titleCarousel .title h2 {
+  font-size: 3.8rem;
+  margin-top: 0.8rem;
+}
+#discography .titleContainer .titleCarousel .title h3 {
+  font-size: 1.2rem;
+  margin-top: -1rem;
+}
+#discography .carousel {
+  display: flex;
+  position: relative;
+  top: 30vh;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+#discography .carousel.active {
+  top: 0;
+  align-items: start;
+}
+#discography .carousel .carouselItem {
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+#discography .carousel .carouselItem:first-child {
+  margin-left: 50px;
+}
+#discography .carousel .carouselItem.active {
+  width: 100vw;
+  margin-left: 0;
+}
+#discography .carousel .carouselItem.active .thumbnail {
+  margin-top: 0;
+  width: 100%;
+}
+#discography .carousel .carouselItem.active .post {
+  display: flex;
+  opacity: 1;
+}
+#discography .carousel .carouselItem .post {
+  display: none;
+  opacity: 0;
+  transition: all 0.3s;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  margin-top: 120px;
+  margin-bottom: 100px;
+}
+#discography .carousel .carouselItem .post .streamIcons {
+  display: flex;
+  gap: 10px;
+}
+#discography .carousel .carouselItem .post .streamIcons div {
+  position: relative;
+  width: 35px;
+  height: 35px;
+}
+#discography .carousel .carouselItem .post .streamIcons div a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #000;
+  border-radius: 20%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.3s;
+}
+#discography .carousel .carouselItem .post .streamIcons div a:nth-child(1) {
+  background: #fff;
+}
+#discography .carousel .carouselItem .post .streamIcons div a:nth-child(2) {
+  background: #000;
+  opacity: 0;
+}
+#discography .carousel .carouselItem .post .streamIcons div a img {
+  position: relative;
+}
+#discography .carousel .carouselItem .post .streamIcons div:nth-child(1) img {
+  width: 60%;
+  top: 4px;
+}
+#discography .carousel .carouselItem .post .streamIcons div:nth-child(2) img {
+  width: 45%;
+  top: 5px;
+  left: 1px;
+}
+#discography .carousel .carouselItem .post .streamIcons div:nth-child(3) img {
+  width: 80%;
+  top: 6px;
+}
+#discography .carousel .carouselItem .post .streamIcons div:nth-child(4) img {
+  width: 50%;
+  top: 5.5px;
+}
+#discography .carousel .carouselItem .post .streamIcons div:nth-child(5) img {
+  width: 80%;
+  left: 1.5px;
+  top: 7px;
+}
+#discography .carousel .carouselItem .post .accordionContainer {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+#discography .carousel .carouselItem .post .accordionContainer .accordion .moreBtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  background: #fafafa;
+  border: none;
+  width: 100%;
+  font-size: 1.1rem;
+  transition: all 0.3s;
+}
+#discography .carousel .carouselItem .post .accordionContainer .accordion .moreBtn h4 {
+  font: 1em "GongGothicMedium";
+}
+#discography .carousel .carouselItem .post .accordionContainer .accordion .moreBtn img {
+  width: 12px;
+  transition: all 0.3s;
+}
+#discography .carousel .carouselItem .post .accordionContainer .accordion .textbox {
+  text-align: justify;
+  border-bottom: 1px solid #000;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+#discography .carousel .carouselItem .post .accordionContainer .accordion .textbox .text {
+  padding: 0 10px;
+}
+#discography .carousel .carouselItem .post .list {
+  width: 80%;
+  margin-top: 20px;
+}
+#discography .carousel .carouselItem .post .list li {
+  border-top: 1px solid #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10px;
+}
+#discography .carousel .carouselItem .post .list li:last-child {
+  border-bottom: 1px solid #000;
+}
+#discography .carousel .carouselItem .post .list li span {
+  font: 1rem "GongGothicMedium";
+  transition: all 0.3s;
+}
+#discography .carousel .carouselItem .post .list li time {
+  font: 0.8rem "GongGothicLight";
+  transition: all 0.3s;
+}
+#discography .carousel .carouselItem .post .list li.active span {
+  color: #fff;
+  text-shadow: 2px 2px #000, -2px -2px #000, 2px -2px #000, -2px 2px #000, 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000;
+  font: 1rem "GongGothicBold";
+}
+#discography .carousel .carouselItem .post .list li.active time {
+  color: #fff;
+  text-shadow: 1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000, 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000;
+  font: 0.8rem "GongGothicMedium";
+}
+#discography .carousel .thumbnail {
+  width: 100%;
+  position: relative;
+}
+#discography .carousel .thumbnail img {
+  width: 100%;
+}
+#discography .carousel .cover {
+  position: relative;
+}/*# sourceMappingURL=03_discography.css.map */

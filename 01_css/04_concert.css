@@ -1,0 +1,178 @@
+#concert {
+  background: #fafafa;
+  width: 100vw;
+  height: 100vh;
+  color: #000;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  position: relative;
+}
+#concert .titleContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 6rem;
+  overflow: hidden;
+  z-index: 1;
+  position: absolute;
+  top: 59%;
+  transition: all 0.3s ease;
+}
+#concert .titleContainer .titleCarousel {
+  position: relative;
+  top: 0;
+  transition: all 0.3s ease;
+}
+#concert .titleContainer .titleCarousel .title {
+  font-family: "GangwonEduPowerExtraBoldA";
+  display: flex;
+  flex-direction: column;
+  height: 6rem;
+  transition: all 0.3s;
+  text-shadow: 1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+}
+#concert .titleContainer .titleCarousel .title h2 {
+  font-size: 3.8rem;
+  margin-top: 0.8rem;
+}
+#concert .titleContainer .titleCarousel .title .subtitle {
+  overflow: hidden;
+  height: 1.2rem;
+  margin-top: -10px;
+}
+#concert .titleContainer .titleCarousel .title .subtitle h3 {
+  display: block;
+  font-size: 1.2rem;
+  margin-top: 1px;
+  position: relative;
+  transition: all 0.3s;
+}
+#concert .carousel {
+  display: flex;
+  position: relative;
+  top: 30vh;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+#concert .carousel.active {
+  top: 0;
+  align-items: start;
+}
+#concert .carousel .carouselItem {
+  flex-shrink: 0;
+  transition: all 0.3s;
+}
+#concert .carousel .carouselItem:first-child {
+  margin-left: 50px;
+}
+#concert .carousel .carouselItem .thumbnail {
+  width: 100%;
+  position: relative;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+}
+#concert .carousel .carouselItem .thumbnail .poster {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+#concert .carousel .carouselItem .thumbnail .poster img {
+  position: relative;
+  transition: all 0.5s;
+}
+#concert .carousel .carouselItem:nth-child(1) .thumbnail .poster img {
+  transform: scale(1.6);
+  top: 5%;
+}
+#concert .carousel .carouselItem:nth-child(2) .thumbnail .poster img {
+  transform: scale(1.8);
+  top: -5%;
+}
+#concert .carousel .carouselItem:nth-child(3) .thumbnail .poster img {
+  transform: scale(2);
+  top: 40%;
+}
+#concert .carousel .carouselItem:nth-child(4) .thumbnail .poster img {
+  transform: scale(1.9);
+  top: 18%;
+}
+#concert .carousel .carouselItem:nth-child(5) .thumbnail .poster img {
+  transform: scale(2);
+  top: 5%;
+}
+#concert .carousel .carouselItem:nth-child(6) .thumbnail .poster img {
+  transform: scale(1.8);
+  top: 20%;
+}
+#concert .carousel .carouselItem.active {
+  width: 100vw;
+  margin-left: 0;
+}
+#concert .carousel .carouselItem.active .thumbnail {
+  margin-top: 0;
+  aspect-ratio: auto;
+}
+#concert .carousel .carouselItem.active .thumbnail .poster img {
+  width: 100%;
+  transform: scale(1) !important;
+  top: 0;
+  position: relative;
+}
+#concert .carousel .carouselItem.active .post {
+  display: flex;
+  opacity: 1;
+}
+#concert .carousel .carouselItem .post {
+  display: none;
+  opacity: 0;
+  transition: all 0.3s;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  margin-top: 180px;
+  margin-bottom: 100px;
+}
+#concert .carousel .carouselItem .post .table {
+  width: 80%;
+  line-height: 125%;
+}
+#concert .carousel .carouselItem .post .table li {
+  border-top: 1px solid #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 10px 15px 10px;
+}
+#concert .carousel .carouselItem .post .table li:last-child {
+  border-bottom: 1px solid #000;
+}
+#concert .carousel .carouselItem .post .table li span {
+  font: 1rem "GongGothicMedium";
+}
+#concert .carousel .carouselItem .post .list {
+  width: 80%;
+  margin-top: 40px;
+}
+#concert .carousel .carouselItem .post .list li {
+  border-top: 1px solid #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10px;
+}
+#concert .carousel .carouselItem .post .list li:last-child {
+  border-bottom: 1px solid #000;
+}
+#concert .carousel .carouselItem .post .list li span {
+  font: 1rem "GongGothicMedium";
+}
+#concert .carousel .carouselItem .post .list li time {
+  font: 0.8rem "GongGothicLight";
+}
+#concert .carousel .carouselItem .post .list li.active span {
+  color: #fff;
+  text-shadow: 2px 2px #000, -2px -2px #000, 2px -2px #000, -2px 2px #000, 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000;
+  font: 1rem "GongGothicBold";
+}/*# sourceMappingURL=04_concert.css.map */

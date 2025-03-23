@@ -1,0 +1,340 @@
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+body {
+  background: #fafafa;
+  position: relative;
+  font-family: "Paperlogy-4Regular";
+  text-align: center;
+}
+
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  opacity: 1;
+  visibility: visible;
+
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  img {
+    width: 70%;
+    position: relative;
+    left: 2%;
+  }
+}
+
+section {
+  background: #fafafa;
+  position: absolute;
+
+  &.goHome {
+    transition: opacity 0.3s ease;
+  }
+
+  &.pages {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    opacity: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+section#home {
+  display: block;
+}
+
+#header {
+  width: 100vw;
+  position: fixed;
+  z-index: 10000;
+
+  #logo {
+    width: 100px;
+    height: auto;
+    margin: 25px auto;
+
+    .logo {
+      opacity: 0;
+
+      &.active {
+        opacity: 1;
+      }
+    }
+
+    a {
+      display: block;
+    }
+
+    .logoContianer {
+      position: relative;
+      left: -2px;
+    }
+
+    img {
+      width: 100%;
+      position: absolute;
+      transition: opacity 0.3s;
+
+      &.black {
+        z-index: 1;
+        top: 0;
+        left: 0;
+        opacity: 1;
+      }
+
+      &.white {
+        z-index: 1;
+        top: 0;
+        left: 0;
+      }
+
+      &.cyan {
+        top: 1px;
+        left: 2px;
+      }
+
+      &.red {
+        top: -1px;
+        left: -2px;
+      }
+    }
+  }
+}
+
+#nav {
+  width: 100vw;
+  position: fixed;
+  z-index: 9999;
+
+  #menuBtn {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 65px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    z-index: 10000;
+  
+    div {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+  
+      &:nth-child(1) {
+        z-index: 1;
+      }
+  
+      &:nth-child(2) {
+        top: -1px;
+        left: -2px;
+  
+        span {
+          background: red;
+        }
+  
+        &.open {
+          top: 0;
+          left: -2px;
+        }
+      }
+  
+      &:nth-child(3) {
+        top: 1px;
+        left: 2px;
+  
+        span {
+          background: cyan;
+        }
+  
+        &.open {
+          top: 0;
+          left: 2px;
+        }
+      }
+    }
+  
+    span {
+      width: 70%;
+      height: 4px;
+      background: #000;
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 6px;
+      transform: translateY(-50%);
+      transition: transform 0.3s;
+  
+      &:first-child {
+        transform: rotate(0) translateY(-0.7vh);
+      }
+  
+      &:last-child {
+        transform: rotate(0) translateY(0.7vh);
+      }
+    }
+  
+    &.white {
+      span {
+        background: #fff;
+        height: 3.5px;
+      }
+    }
+  
+    &.open {
+      span {
+        height: 3px;
+  
+        &:first-child {
+          transform: rotate(135deg);
+        }
+  
+        &:last-child {
+          transform: rotate(-135deg);
+        }
+      }
+    }
+  }
+
+  
+
+  #menuBox {
+    transition: all 0.3s;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    z-index: 9999;
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+
+    &.open {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .menu {
+      font: 2.8rem 'GangwonEduPowerExtraBoldA';
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      li {
+        width: 100vw;
+        height: 8vh;
+
+        a {
+          transition: all 0.3s;
+          width: 100%;
+          height: 100%;
+          color: #fff;
+          display: block;
+          position: relative;
+          line-height: 10.5vh;
+          text-shadow: -2px 0px red, 2px 0px cyan;
+
+          &.tab {
+            color: #000;
+            text-shadow: 1px 1px cyan, -1px -1px red;
+          }
+        }
+      }
+
+      .line {
+        width: 80vw;
+        height: 0.1rem;
+        background: #fff;
+      }
+    }
+
+    #footer {
+      width: 100vw;
+      position: absolute;
+      bottom: 5vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .sns {
+        display: flex;
+        margin-bottom: 1vh;
+
+        li {
+          width: 25px;
+          height: 25px;
+          margin-right: 2vw;
+
+          &:last-child {
+            margin-right: 0;
+          }
+
+          .snsIcon {
+            display: block;
+            position: relative;
+
+            img {
+              position: absolute;
+              top: 0;
+              left: 0;
+              transition: opacity 0.3s;
+
+              &:last-child {
+                opacity: 0;
+              }
+            }
+          }
+        }
+      }
+
+      .copyright {
+        color: #808080;
+        font: 0.7em "Paperlogy-4Regular";
+      }
+    }
+  }
+}
+
+.basicBtn {
+  width: 200px;
+  height: 50px;
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 5px;
+  padding: 0;
+  transition: all .3s;
+
+  a {
+    font: 1rem "GongGothicBold";
+    text-align: center;
+    line-height: 50px;
+    color: #000;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.grey {
+  color: #aaa;
+}

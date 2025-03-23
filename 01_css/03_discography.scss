@@ -1,0 +1,234 @@
+#discography {
+  background: #fafafa;
+  width: 100vw;
+  height: 100vh;
+  color: #000;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  position: relative;
+
+  .titleContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 6rem;
+    overflow: hidden;
+    z-index: 1;
+    position: absolute;
+    top: 59%;
+    transition: all .3s ease;
+
+    &.active {
+      top: 48%;
+    }
+
+    .titleCarousel {
+      position: relative;
+      top: 0;
+      transition: all .3s ease;
+      
+      .title {
+        font-family: "GangwonEduPowerExtraBoldA";
+        display: flex;
+        flex-direction: column;
+        height: 6rem;
+        text-shadow: 1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+  
+        h2 {
+          font-size: 3.8rem;
+          margin-top: .8rem;
+        }
+  
+        h3 {
+          font-size: 1.2rem;
+          margin-top: -1rem;
+        }
+      }
+    }
+  }
+
+  .carousel {
+    display: flex;
+    position: relative;
+    top: 30vh;
+    align-items: center;
+    transition: all .3s ease;
+
+    &.active {
+      top: 0;
+      align-items: start;
+    }
+
+    .carouselItem {
+      flex-shrink: 0;
+      transition: all .3s ease;
+      
+      &:first-child {
+        margin-left: 50px;
+      }
+
+      &.active {
+        width: 100vw;
+        margin-left: 0;
+
+        .thumbnail {
+          margin-top: 0;
+          width: 100%;
+        }
+
+        .post {
+          display: flex;
+          opacity: 1;
+        }
+      }
+
+      .post {
+        display: none;
+        opacity: 0;
+        transition: all .3s;
+        flex-direction: column;
+        align-items: center;
+        gap: 80px;
+        margin-top: 120px;
+        margin-bottom: 100px;
+
+        .streamIcons {
+          display: flex;
+          gap: 10px;
+
+          div {
+            position: relative;
+            width: 35px;
+            height: 35px;
+
+            a {
+              display: block;
+              width: 100%;
+              height: 100%;
+              border: 2px solid #000;
+              border-radius: 20%;
+              position: absolute;
+              top: 0;
+              left: 0;
+              transition: all .3s;
+              
+              &:nth-child(1) {
+                background: #fff;
+              }
+              
+              &:nth-child(2) {
+                background: #000;
+                opacity: 0;
+              }
+
+              img {
+                position: relative;
+              }
+            }
+
+            &:nth-child(1) img { width: 60%; top: 4px; }
+            &:nth-child(2) img { width: 45%; top: 5px; left: 1px; }
+            &:nth-child(3) img { width: 80%; top: 6px; }
+            &:nth-child(4) img { width: 50%; top: 5.5px; }
+            &:nth-child(5) img { width: 80%; left: 1.5px; top: 7px; }
+          }
+        }
+        .accordionContainer {
+          width: 80%;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+
+          .accordion {
+
+            .moreBtn {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 0 10px;
+              background: #fafafa;
+              border: none;
+              width: 100%;
+              font-size: 1.1rem;
+              transition: all .3s;
+
+              h4 {
+                font: 1em "GongGothicMedium";
+              }
+
+              img {
+                width: 12px;
+                transition: all .3s;
+              }
+            }
+
+            .textbox {
+              text-align: justify;
+              border-bottom: 1px solid #000;
+              max-height: 0;
+              overflow: hidden;
+              transition: all .5s ease;
+
+              .text {
+                padding: 0 10px;
+              }
+            }
+          }
+        }
+        .list {
+          width: 80%;
+          margin-top: 20px;
+
+          li {
+            border-top: 1px solid #000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 10px;
+
+            &:last-child {
+              border-bottom: 1px solid #000;
+            }
+
+            span {
+              font: 1rem "GongGothicMedium";
+              transition: all .3s;
+            }
+
+            time {
+              font: 0.8rem "GongGothicLight";
+              transition: all .3s;
+            }
+
+            &.active {
+              span {
+                color: #fff;
+                text-shadow: 2px 2px #000, -2px -2px #000, 2px -2px #000, -2px 2px #000, 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000;
+                font: 1rem "GongGothicBold";
+              }
+  
+              time {
+                color: #fff;
+                text-shadow: 1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000, 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000;
+                font: 0.8rem "GongGothicMedium";
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .thumbnail {
+      width: 100%;
+      position: relative;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .cover { 
+      position: relative;
+    }
+  }
+}
