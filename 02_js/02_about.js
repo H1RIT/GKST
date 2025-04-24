@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
   about.addEventListener("mouseup", function(e) {
     if (isSwiping) return;
 
-    endY = e.changedTouches[0].clientY;
+    endY = e.clientY;
 
     if (endY < startY) {
       window.scrollTo({ top: team.offsetHeight, behavior: "smooth" });
