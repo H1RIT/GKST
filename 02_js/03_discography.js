@@ -102,31 +102,31 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  carousel.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].clientX;
+  carousel.addEventListener("mousedown", (e) => {
+    startX = e.clientX;
     isSwiping = true;
     currentX = NaN;
   });
-
-  carousel.addEventListener("touchmove", (e) => {
+  
+  carousel.addEventListener("mousemove", (e) => {
     if (!isSwiping || isActive) return;
-    currentX = e.touches[0].clientX;
-  }, { passive: false });
-
-  carousel.addEventListener("touchend", () => {
+    currentX = e.clientX;
+  });
+  
+  carousel.addEventListener("mouseup", () => {
     if (isActive || !isSwiping) return;
-
+  
     const deltaX = currentX - startX;
-
+  
     if (deltaX < -50 && currentIndex < lastItem) {
       currentIndex++;
     } else if (deltaX > 50 && currentIndex > 0) {
       currentIndex--;
     }
-
+  
     updateCurrentSlide();
     isSwiping = false;
-  }, { passive: false });
+  });  
 
   const thumbnails = document.querySelectorAll("#discography .thumbnail");
   thumbnails.forEach((thumbnail) => {

@@ -19,6 +19,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function resetSlides() {
     carousels.forEach((carousel, index) => {
+      simulateSwipe(carousel);
+      
       const carouselItems = carousel.querySelectorAll(".carouselItem");
       const itemWidth = (windowWidth * 0.8) - 100;
 
@@ -65,33 +67,33 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-    carousel.addEventListener("touchstart", (e) => {
-      startX = e.touches[0].clientX;
-      startY = e.touches[0].clientY;
+    carousel.addEventListener("mousedown", (e) => {
+      startX = e.clientX;
+      startY = e.clientY;
       isSwipingX = false;
     });
 
-    carousel.addEventListener("touchmove", (e) => {
-      currentX = e.touches[0].clientX;
-      currentY = e.touches[0].clientY;
+    carousel.addEventListener("mousemove", (e) => {
+      currentX = e.clientX;
+      currentY = e.clientY;
 
       deltaX = currentX - startX;
       deltaY = currentY - startY;
 
-      if (Math.abs(deltaX) > 50 && Math.abs(deltaX) > Math.abs(deltaY)) {
+      if (Math.abs(deltaX) > 30 && Math.abs(deltaX) > Math.abs(deltaY)) {
         isSwipingX = true;
       }
     }, { passive: false });
 
-    carousel.addEventListener("touchend", (e) => {
+    carousel.addEventListener("mouseup", (e) => {
       if (!isSwipingX) return;
       if (isActive) return;
 
       const currentIndex = currentIndexes[carouselIndex];
 
-      if (deltaX < -50 && currentIndex < lastItem) {
+      if (deltaX < -30 && currentIndex < lastItem) {
         currentIndexes[carouselIndex]++;
-      } else if (deltaX > 50 && currentIndex > 0) {
+      } else if (deltaX > 30 && currentIndex > 0) {
         currentIndexes[carouselIndex]--;
       }
 
@@ -157,7 +159,7 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         });
         if (currentIndexes[carouselIndex] !== 0) {
-          item.style.marginLeft = "-50px"
+          item.style.marginLeft = "-30px"
         }
         item.classList.add("active");
         item.style.width = "";
@@ -197,22 +199,22 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
-      item.addEventListener("touchstart", (e) => {
-        startX = e.touches[0].clientX;
+      item.addEventListener("mousedown", (e) => {
+        startX = e.clientX;
       });
     
-      item.addEventListener("touchmove", (e) => {
-        currentX = e.touches[0].clientX;
+      item.addEventListener("mousemove", (e) => {
+        currentX = e.clientX;
       }, { passive: false });
     
-      item.addEventListener("touchend", (e) => {
+      item.addEventListener("mouseup", (e) => {
         if(!isActive) return;
 
         const totalPhotos = photos.length;
         
-        if (currentX - startX < -50 && currentPhotoIndex < totalPhotos - 1) {
+        if (currentX - startX < -30 && currentPhotoIndex < totalPhotos - 1) {
           currentPhotoIndex++;
-        } else if (currentX - startX > 50 && currentPhotoIndex > 0) {
+        } else if (currentX - startX > 30 && currentPhotoIndex > 0) {
           currentPhotoIndex--;
         }
         resetPhotos();
@@ -239,46 +241,46 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  gallery.addEventListener("touchstart", (e) => {
+  gallery.addEventListener("mousedown", (e) => {
     if (isSwipingX) return;
 
-    startY = e.touches[0].clientY;
+    startY = e.clientY;
 
     isSwipingY = false;
   });
 
-  gallery.addEventListener("touchmove", (e) => {
+  gallery.addEventListener("mousemove", (e) => {
     if (isSwipingX) return;
 
-    currentY = e.touches[0].clientY;
+    currentY = e.clientY;
 
-    if (Math.abs(deltaY) > 50 && Math.abs(deltaX) < Math.abs(deltaY)) {
+    if (Math.abs(deltaY) > 30 && Math.abs(deltaX) < Math.abs(deltaY)) {
       isSwipingY = true;
     }
   }, { passive: false });
 
-  gallery.addEventListener("touchend", (e) => {
+  gallery.addEventListener("mouseup", (e) => {
     if (isSwipingX) return;
     if (!isSwipingY) return;
     if (isActive) return;
 
     const lastCarouselIndex = carousels.length - 1;
 
-    if (deltaY < -50 && currentCarouselIndex < lastCarouselIndex) {
+    if (deltaY < -30 && currentCarouselIndex < lastCarouselIndex) {
       currentCarouselIndex++;
-    } else if (deltaY > 50 && currentCarouselIndex > 0) {
+    } else if (deltaY > 30 && currentCarouselIndex > 0) {
       currentCarouselIndex--;
     }
 
     if (currentCarouselIndex == 0) {
-      document.querySelector(".arrow .down").style.opacity = "0";
-      document.querySelector(".arrow .up").style.opacity = "1";
-    } else if (currentCarouselIndex == lastCarouselIndex) {
       document.querySelector(".arrow .up").style.opacity = "0";
       document.querySelector(".arrow .down").style.opacity = "1";
-    } else {
+    } else if (currentCarouselIndex == lastCarouselIndex) {
+      document.querySelector(".arrow .down").style.opacity = "0";
       document.querySelector(".arrow .up").style.opacity = "1";
+    } else {
       document.querySelector(".arrow .down").style.opacity = "1";
+      document.querySelector(".arrow .up").style.opacity = "1";
     }
 
     carouselWrap.style.top = `-${currentCarouselIndex * containerHeight}px`;

@@ -118,18 +118,18 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  carousel.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].clientX;
+  carousel.addEventListener("mousedown", (e) => {
+    startX = e.clientX;
     isSwiping = true;
     currentX = NaN;
   });
 
-  carousel.addEventListener("touchmove", (e) => {
+  carousel.addEventListener("mousemove", (e) => {
     if (!isSwiping || isActive) return;
-    currentX = e.touches[0].clientX;
+    currentX = e.clientX;
   }, { passive: false });
 
-  carousel.addEventListener("touchend", () => {
+  carousel.addEventListener("mouseup", () => {
     if (isActive || !isSwiping) return;
 
     const deltaX = currentX - startX;

@@ -175,3 +175,91 @@ basicBtn.forEach(button => {
     }, 300);
   });
 });
+
+simulateSwipe(document)
+
+function simulateSwipe(target) {
+  let isDragging = false;
+  let startX = 0;
+  let startY = 0;
+
+  const dragThreshold = 10;
+
+  target.addEventListener("mousedown", function(e) {
+    startX = e.clientX;
+    startY = e.clientY;
+    isDragging = false;
+
+    target.dispatchEvent(new TouchEvent("touchstart", {
+      touches: [new Touch({ identifier: Date.now(), target: target, clientX: e.clientX, clientY: e.clientY })],
+      bubbles: true,
+      cancelable: true
+    }));
+  });
+
+  target.addEventListener("mousemove", function(e) {
+    const deltaX = Math.abs(e.clientX - startX);
+    const deltaY = Math.abs(e.clientY - startY);
+
+    if (deltaX > dragThreshold || deltaY > dragThreshold) {
+      isDragging = true;
+    }
+
+    target.dispatchEvent(new TouchEvent("touchmove", {
+      touches: [new Touch({ identifier: Date.now(), target: target, clientX: e.clientX, clientY: e.clientY })],
+      bubbles: true,
+      cancelable: true
+    }));
+  });
+
+  target.addEventListener("mouseup", function(e) {
+    target.dispatchEvent(new TouchEvent("touchend", {
+      changedTouches: [new Touch({ identifier: Date.now(), target: target, clientX: e.clientX, clientY: e.clientY })],
+      bubbles: true,
+      cancelable: true
+    }));
+
+    if (isDragging) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  });
+
+  target.addEventListener("click", function(e) {
+    if (isDragging) {
+      e.preventDefault();
+      e.stopPropagation();
+      isDragging = false;
+    }
+  }, true);
+}
+
+function enableDragScroll(container) {
+  let isDragging = false;
+  let startY;
+  let scrollTop;
+
+  container.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    startY = e.clientY;
+    scrollTop = container.scrollTop;
+    container.style.cursor = "grabbing";
+    e.preventDefault();
+  });
+
+  container.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+    const deltaY = e.clientY - startY;
+    container.scrollTop = scrollTop - deltaY;
+  });
+
+  container.addEventListener("mouseup", () => {
+    isDragging = false;
+    container.style.cursor = "default";
+  });
+
+  container.addEventListener("mouseleave", () => {
+    isDragging = false;
+    container.style.cursor = "default";
+  });
+}

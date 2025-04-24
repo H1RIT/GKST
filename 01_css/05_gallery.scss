@@ -13,7 +13,7 @@
     position: absolute;
 
     .arrow {
-      opacity: .3;
+      opacity: .2;
 
       .up {
         position: absolute;
@@ -22,6 +22,7 @@
         transform: translateX(-50%) translateY(0) rotate(180deg);
         animation: arrowUp 1.5s ease infinite;
         transition: all .3s;
+        opacity: 0;
       }
     
       .down {
@@ -31,7 +32,6 @@
         transform: translateX(-50%) translateY(0);
         animation: arrowDown 1.5s ease infinite;
         transition: all .3s;
-        opacity: 0;
       }
     }
     .year {

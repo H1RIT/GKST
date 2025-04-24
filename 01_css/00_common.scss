@@ -1,13 +1,15 @@
 * {
   -webkit-tap-highlight-color: transparent;
+  user-select: none !important;
+  -webkit-user-drag: none !important;
 }
-
 
 body {
   background: #fafafa;
   position: relative;
   font-family: "Paperlogy-4Regular";
   text-align: center;
+  cursor: default;
 }
 
 #loading {

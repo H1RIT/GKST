@@ -13,7 +13,7 @@
   position: absolute;
 }
 #gallery .galleryInterface .arrow {
-  opacity: 0.3;
+  opacity: 0.2;
 }
 #gallery .galleryInterface .arrow .up {
   position: absolute;
@@ -22,6 +22,7 @@
   transform: translateX(-50%) translateY(0) rotate(180deg);
   animation: arrowUp 1.5s ease infinite;
   transition: all 0.3s;
+  opacity: 0;
 }
 #gallery .galleryInterface .arrow .down {
   position: absolute;
@@ -30,7 +31,6 @@
   transform: translateX(-50%) translateY(0);
   animation: arrowDown 1.5s ease infinite;
   transition: all 0.3s;
-  opacity: 0;
 }
 #gallery .galleryInterface .year {
   height: 2rem;
