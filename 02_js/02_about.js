@@ -6,12 +6,12 @@ document.addEventListener("DOMContentLoaded", function() {
   let startY = 0;
   let endY = 0;
   
-  about.addEventListener("touchstart", function(e) {
+  about.addEventListener("mousedown", function(e) {
     if (isSwiping) return;
-    startY = e.touches[0].clientY;
+    startY = e.clientY;
   });
   
-  about.addEventListener("touchend", function(e) {
+  about.addEventListener("mouseup", function(e) {
     if (isSwiping) return;
 
     endY = e.changedTouches[0].clientY;
@@ -154,18 +154,18 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 5000);
   }
 
-  carousel.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].clientX;
+  carousel.addEventListener("mousedown", (e) => {
+    startX = e.clientX;
     isSwiping = true;
     currentX = NaN;
   });
 
-  carousel.addEventListener("touchmove", (e) => {
+  carousel.addEventListener("mousemove", (e) => {
     if (!isSwiping) return;
-    currentX = e.touches[0].clientX;
+    currentX = e.clientX;
   }, { passive: false });
 
-  carousel.addEventListener("touchend", () => {
+  carousel.addEventListener("mouseup", () => {
     if (!isSwiping) return;
 
     const deltaX = currentX - startX;
